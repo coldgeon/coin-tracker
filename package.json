@@ -49,5 +49,5 @@
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3"
   },
-  "homepage": "https://coldgeon/github.io/coin-tracker"
+  "homepage": "https://coldgeon/github.io/coin-tracker/"
 }
