@@ -1,4 +1,5 @@
 // import { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 import {
   Link,
   Route,
@@ -159,35 +160,29 @@ function Coin() {
       fetchCoinThicker(coinId)
     );
 
-  //   const [loading, setLoading] = useState(true);
-  //   const [info, setInfo] = useState<IInfoData>();
-  //   const [priceInfo, setPriceInfo] = useState<IPriceData>();
-
-  //   useEffect(() => {
-  //     (async () => {
-  //       const infoData = await (
-  //         await fetch(`https://api.coinpaprika.com/v1/coins/${coinId}`)
-  //       ).json();
-  //       const priceData = await (
-  //         await fetch(`https://api.coinpaprika.com/v1/tickers/${coinId}`)
-  //       ).json();
-  //       setInfo(infoData);
-  //       setPriceInfo(priceData);
-  //       setLoading(false);
-  //     })();
-  //   }, [coinId]);
-
   return (
     <Container>
-      <Header>
-        <Title>
+      <Helmet>
+        <title>
           {state?.name
             ? state.name
             : infoLoading
             ? 'Loading...'
             : infoData?.name}
-        </Title>
+        </title>
+      </Helmet>
+      <Header>
+        <Link to={{ pathname: '/' }}>
+          <Title>
+            {state?.name
+              ? state.name
+              : infoLoading
+              ? 'Loading...'
+              : infoData?.name}
+          </Title>
+        </Link>
       </Header>
+
       {tickersLoading ? (
         <Loader>Loading...</Loader>
       ) : (

@@ -4,7 +4,8 @@ import Coin from './routes/Coin';
 
 function Router() {
   return (
-    <BrowserRouter>
+    //basename을 아래와 같이 값을 넘겨줘야지만, package.json의 homepage url 값으로 설정이 된다.
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path="/:coinId">
           <Coin />
